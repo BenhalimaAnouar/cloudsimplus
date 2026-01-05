@@ -8,14 +8,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     name: Java Build
+=======
+    name: Java 24 Build
+>>>>>>> 413287183 (Adaptive LB based on IA)
     steps:
       - uses: actions/checkout@v4
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'corretto'
+<<<<<<< HEAD
           java-version: 25
+=======
+          java-version: 24
+>>>>>>> 413287183 (Adaptive LB based on IA)
           cache: 'maven'
       - name: Maven Build
         run: mvn clean verify -B -V -Pintegration-tests
