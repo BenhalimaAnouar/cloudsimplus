@@ -7,8 +7,6 @@ module cloudsimplus {
     requires org.apache.commons.lang3;
     requires org.jetbrains.annotations;
     requires org.slf4j;
-<<<<<<< HEAD
-=======
-    requires java.net.http;
->>>>>>> 413287183 (Adaptive LB based on IA)
+     requires java.net.http;
+
 }
