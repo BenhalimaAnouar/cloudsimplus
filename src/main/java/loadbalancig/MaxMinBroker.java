@@ -21,12 +21,10 @@ import org.cloudsimplus.vms.Vm;
  *
  * @author aaaaa
  */
-public class MaxMinBroker implements   VmSelectionPolicy {
+public class MaxMinBroker implements VmSelectionPolicy {
 
-private final Map<Vm, Double> vmAvailableTime = new HashMap<>();
+    private final Map<Vm, Double> vmAvailableTime = new HashMap<>();
     private final Set<Cloudlet> assignedCloudlets = new HashSet<>();
-
-    
 
     private double estimateCompletionTime(Cloudlet cloudlet, Vm vm, double vmAvailableTime) {
         double execTime = cloudlet.getLength() / vm.getMips();
@@ -35,8 +33,7 @@ private final Map<Vm, Double> vmAvailableTime = new HashMap<>();
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-     
-    
+
         // Initialize VM availability if not done yet
         if (vmAvailableTime.isEmpty()) {
             for (Vm vm : vmList) {
@@ -51,7 +48,9 @@ private final Map<Vm, Double> vmAvailableTime = new HashMap<>();
         double maxMinTime = -1;
 
         for (Cloudlet c : cloudlet.getBroker().getCloudletSubmittedList()) {
-            if (assignedCloudlets.contains(c)) continue;
+            if (assignedCloudlets.contains(c)) {
+                continue;
+            }
 
             double bestCompletion = Double.MAX_VALUE;
             Vm bestForCloudlet = null;
@@ -90,9 +89,8 @@ private final Map<Vm, Double> vmAvailableTime = new HashMap<>();
         double execTime = cloudlet.getLength() / vm.getMips();
         return availableTime + execTime;
     }
-        
-    
-@Override
+
+    @Override
     public String toString() {
         return "Max Min ";
     }

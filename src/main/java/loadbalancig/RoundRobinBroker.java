@@ -15,24 +15,21 @@ import org.cloudsimplus.vms.Vm;
  *
  * @author aaaaa
  */
-public class RoundRobinBroker implements   VmSelectionPolicy{
+public class RoundRobinBroker implements VmSelectionPolicy {
+
     private int lastVmIndex = -1;
 
-    
-        
-        
-    
     public RoundRobinBroker() {
-        
-    }
 
+    }
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-        
+
         //System.out.println("I am Round Robin ");
-        
-        if (vmList.isEmpty()) return Vm.NULL;
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
         lastVmIndex = (lastVmIndex + 1) % vmList.size();
         return vmList.get(lastVmIndex);
     }
@@ -42,5 +39,4 @@ public class RoundRobinBroker implements   VmSelectionPolicy{
         return "Round Robin ";
     }
 
-    
 }

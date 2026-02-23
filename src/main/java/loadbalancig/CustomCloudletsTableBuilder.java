@@ -15,38 +15,32 @@ import org.cloudsimplus.cloudlets.Cloudlet;
  *
  * @author aaaaa
  */
-
-public class CustomCloudletsTableBuilder extends CloudletsTableBuilder  {
+public class CustomCloudletsTableBuilder extends CloudletsTableBuilder {
 
     public CustomCloudletsTableBuilder(List<? extends Cloudlet> list) {
         super(list);
-        
-         //Function<Cloudlet, Object> cloudletTypeFunction = cloudlet -> ((AdaptiveBroker)cloudlet.getBroker()).getPolicy();
 
+        //Function<Cloudlet, Object> cloudletTypeFunction = cloudlet -> ((AdaptiveBroker)cloudlet.getBroker()).getPolicy();
         // 2. Define the custom TableColumn object
         // You can specify title, alignment, and type (optional).
         TableColumn customColumn = new MarkdownTableColumn("-----------------Policy-----------");
-        
-        int lastIndex = getTable().getColumns().size();
-        addColumn(customColumn, 
-                (Cloudlet c) -> {  // lambda that returns the value to show for each cloudlet
-                if (c instanceof CustomCloudlet) {
-                    return ((CustomCloudlet) c).getPolicy();
-                }
-                return "N/A";
-            },lastIndex+1);
-        
-       
-    }
-    
-   
 
-    private Object getPolicyValue (final Cloudlet c){
-        if(c instanceof CustomCloudlet pc){
+        int lastIndex = getTable().getColumns().size();
+        addColumn(customColumn,
+                (Cloudlet c) -> {  // lambda that returns the value to show for each cloudlet
+                    if (c instanceof CustomCloudlet) {
+                        return ((CustomCloudlet) c).getPolicy();
+                    }
+                    return "N/A";
+                }, lastIndex + 1);
+
+    }
+
+    private Object getPolicyValue(final Cloudlet c) {
+        if (c instanceof CustomCloudlet pc) {
             return pc.getPolicy();
         }
         return "N/A";
     }
 
 }
-

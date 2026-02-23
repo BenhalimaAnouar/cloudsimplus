@@ -4,8 +4,6 @@
  */
 package loadbalancig;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,7 +11,8 @@ import org.cloudsimplus.cloudlets.Cloudlet;
 import org.cloudsimplus.core.CloudSimPlus;
 import org.cloudsimplus.vms.Vm;
 
-public class AntColonyBroker implements VmSelectionPolicy{
+public class AntColonyBroker implements VmSelectionPolicy {
+
     private final List<Double> pheromones;   // pheromone level for each VM
     private final double alpha = 1.0;        // pheromone importance
     private final double beta = 2.0;         // heuristic importance
@@ -28,8 +27,6 @@ public class AntColonyBroker implements VmSelectionPolicy{
         }
     }
 
-
-
     private void updatePheromones(int vmIndex) {
         // Evaporation
         for (int i = 0; i < pheromones.size(); i++) {
@@ -38,7 +35,7 @@ public class AntColonyBroker implements VmSelectionPolicy{
         // Reinforce chosen VM
         pheromones.set(vmIndex, pheromones.get(vmIndex) + 1.0);
     }
-    
+
     @Override
     public String toString() {
         return "Ant Colony";
@@ -46,9 +43,10 @@ public class AntColonyBroker implements VmSelectionPolicy{
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-  
-       
-        if (vmList.isEmpty()) return Vm.NULL;
+
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
 
         // Compute probability for each VM
         double[] probs = new double[vmList.size()];
@@ -82,6 +80,5 @@ public class AntColonyBroker implements VmSelectionPolicy{
 
         return vmList.get(chosenIndex);
 
-        
     }
 }

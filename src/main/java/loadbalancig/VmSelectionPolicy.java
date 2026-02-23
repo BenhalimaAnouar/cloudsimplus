@@ -14,7 +14,7 @@ import org.cloudsimplus.vms.Vm;
  * @author aaaaa
  */
 public interface VmSelectionPolicy {
-    
-      Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList);
-      
+
+    Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList);
+
 }

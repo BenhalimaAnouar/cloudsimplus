@@ -15,6 +15,7 @@ import org.cloudsimplus.vms.Vm;
  * @author aaaaa
  */
 class WeightedRoundRobinBroker implements VmSelectionPolicy {
+
     private int currentIndex = -1;
     private int currentWeightCount = 0;
     private final int[] weights;
@@ -23,11 +24,11 @@ class WeightedRoundRobinBroker implements VmSelectionPolicy {
     public WeightedRoundRobinBroker(int[] weights) {
         //super(simulation);
         this.weights = null;
-        for (int w : weights) totalWeight += w;
+        for (int w : weights) {
+            totalWeight += w;
+        }
     }
 
-  
-    
     @Override
     public String toString() {
         return "Weighted Round Robin";
@@ -35,8 +36,10 @@ class WeightedRoundRobinBroker implements VmSelectionPolicy {
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-        
-        if (vmList.isEmpty()) return Vm.NULL;
+
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
 
         while (true) {
             currentIndex = (currentIndex + 1) % vmList.size();

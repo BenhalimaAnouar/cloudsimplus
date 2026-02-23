@@ -15,8 +15,6 @@ public class JoinIdleQueueBroker implements VmSelectionPolicy {
         //super(simulation);
     }
 
-   
-    
     protected void processCloudletReturn(org.cloudsimplus.core.events.SimEvent ev) {
         //super.processEvent(ev);
         Cloudlet cloudlet = (Cloudlet) ev.getData();
@@ -35,10 +33,11 @@ public class JoinIdleQueueBroker implements VmSelectionPolicy {
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-       
+
         //System.out.println("I am JQI");
-        
-        if (vmList.isEmpty()) return Vm.NULL;
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
 
         // Step 1: If we have idle VMs, assign to one of them
         Vm vm = idleVmQueue.poll();
@@ -48,6 +47,6 @@ public class JoinIdleQueueBroker implements VmSelectionPolicy {
 
         // Step 2: Otherwise, use fallback (e.g., random or round-robin)
         return vmList.get(random.nextInt(vmList.size()));
-    
+
     }
 }

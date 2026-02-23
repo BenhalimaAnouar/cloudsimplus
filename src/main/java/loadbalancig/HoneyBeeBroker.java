@@ -4,9 +4,6 @@
  */
 package loadbalancig;
 
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,7 +12,8 @@ import org.cloudsimplus.cloudlets.Cloudlet;
 import org.cloudsimplus.core.CloudSimPlus;
 import org.cloudsimplus.vms.Vm;
 
-public class HoneyBeeBroker implements VmSelectionPolicy{
+public class HoneyBeeBroker implements VmSelectionPolicy {
+
     private final List<Double> fitness;   // fitness (nectar) of each VM
     private final Random rand = new Random();
     private final double limit = 5;       // scout threshold
@@ -31,8 +29,6 @@ public class HoneyBeeBroker implements VmSelectionPolicy{
         }
     }
 
-
-    
     @Override
     public String toString() {
         return "Honey Bee Foranging ";
@@ -40,9 +36,10 @@ public class HoneyBeeBroker implements VmSelectionPolicy{
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-        
-    
-        if (vmList.isEmpty()) return Vm.NULL;
+
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
 
         // Employed bee phase: update nectar (fitness)
         updateFitness(vmList);
@@ -74,16 +71,16 @@ public class HoneyBeeBroker implements VmSelectionPolicy{
     }
 
     private void updateFitness(List<Vm> vmList) {
-         for (int i = 0; i < vmList.size(); i++) {
-        Vm vm = vmList.get(i);
-        // Utilization = number of running cloudlets
-        int runningCloudlets = vm.getCloudletScheduler().getCloudletExecList().size();
+        for (int i = 0; i < vmList.size(); i++) {
+            Vm vm = vmList.get(i);
+            // Utilization = number of running cloudlets
+            int runningCloudlets = vm.getCloudletScheduler().getCloudletExecList().size();
 
-        // Nectar = capacity / (1 + runningCloudlets)
-        double nectar = vm.getTotalMipsCapacity() / (1.0 + runningCloudlets);
+            // Nectar = capacity / (1 + runningCloudlets)
+            double nectar = vm.getTotalMipsCapacity() / (1.0 + runningCloudlets);
 
-        fitness.set(i, Math.max(nectar, 0.1)); // avoid zero
-    }
-    
+            fitness.set(i, Math.max(nectar, 0.1)); // avoid zero
+        }
+
     }
 }

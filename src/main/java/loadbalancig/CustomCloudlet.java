@@ -10,7 +10,8 @@ import org.cloudsimplus.cloudlets.CloudletSimple;
  *
  * @author aaaaa
  */
-public class CustomCloudlet  extends CloudletSimple{
+public class CustomCloudlet extends CloudletSimple {
+
     private String policy;
 
     public String getPolicy() {
@@ -20,9 +21,9 @@ public class CustomCloudlet  extends CloudletSimple{
     public void setPolicy(String policy) {
         this.policy = policy;
     }
+
     public CustomCloudlet(long length, int pesNumber) {
         super(length, pesNumber);
     }
-    
-    
+
 }

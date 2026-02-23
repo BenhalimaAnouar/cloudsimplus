@@ -13,6 +13,7 @@ import org.cloudsimplus.cloudlets.Cloudlet;
 import org.cloudsimplus.vms.Vm;
 
 public class PALBBroker implements VmSelectionPolicy {
+
     private final Random random = new Random();
     private final double explorationProbability; // chance to explore random VM
 
@@ -21,8 +22,6 @@ public class PALBBroker implements VmSelectionPolicy {
         this.explorationProbability = explorationProbability; // e.g., 0.2 = 20% random assignment
     }
 
-    
-    
     @Override
     public String toString() {
         return "PAlB Algorithm ";
@@ -30,8 +29,10 @@ public class PALBBroker implements VmSelectionPolicy {
 
     @Override
     public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
-   
-        if (vmList.isEmpty()) return Vm.NULL;
+
+        if (vmList.isEmpty()) {
+            return Vm.NULL;
+        }
 
         // Exploration: assign to random VM with probability
         if (random.nextDouble() < explorationProbability) {
@@ -40,9 +41,8 @@ public class PALBBroker implements VmSelectionPolicy {
 
         // Exploitation: assign to least loaded VM (fewest Cloudlets queued)
         Optional<Vm> bestVm = vmList.stream()
-                .min(Comparator.comparingInt(vm -> vm.getCloudletScheduler().getCloudletExecList().size() +
-                                                   vm.getCloudletScheduler().getCloudletWaitingList().size()));
+                .min(Comparator.comparingInt(vm -> vm.getCloudletScheduler().getCloudletExecList().size()
+                + vm.getCloudletScheduler().getCloudletWaitingList().size()));
         return bestVm.orElse(vmList.get(0));
     }
 }
- 
