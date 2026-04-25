@@ -1,58 +1,72 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package loadbalancig;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-import org.cloudsimplus.brokers.DatacenterBrokerSimple;
 import org.cloudsimplus.cloudlets.Cloudlet;
-import org.cloudsimplus.core.CloudSimPlus;
 import org.cloudsimplus.vms.Vm;
 
-public class ActiveClusteringBroker implements VmSelectionPolicy {
+/**
+ * A VM selection policy implementing an Active Clustering load balancing strategy.
+ *
+ * <p>The algorithm selects a random initiator VM, finds a neighbor VM with similar MIPS, and then
+ * chooses the least loaded VM inside the cluster.
+ */
+public final class ActiveClusteringBroker implements VmSelectionPolicy {
+  /** The threshold of cluster. */
+  private static final double CLUSTER_THRESHOLD = 0.2;
 
-    private final Random random = new Random();
+  /** Random. */
+  private final Random random = new Random();
 
-    public ActiveClusteringBroker() {
-        // super(simulation);
+  /** Default constructor. */
+  public ActiveClusteringBroker() {}
+
+  @Override
+  public String toString() {
+    return "Active Clustering";
+  }
+
+  /**
+   * Selects a VM for a given Cloudlet using the Active Clustering load balancing strategy.
+   *
+   * @param cloudlet the cloudlet to schedule
+   * @param vmList the list of available VMs
+   * @return the selected VM or {@link Vm#NULL} if none exists
+   */
+  @Override
+  public Vm selectVmForCloudlet(final Cloudlet cloudlet, final List<Vm> vmList) {
+
+    if (vmList.isEmpty()) {
+      return Vm.NULL;
     }
 
-    @Override
-    public String toString() {
-        return "Active Clustering ";
-    }
+    final Vm initiator = vmList.get(random.nextInt(vmList.size()));
 
-    @Override
-    public Vm selectVmForCloudlet(Cloudlet cloudlet, List<Vm> vmList) {
+    final Vm neighbor =
+        vmList.stream()
+            .filter(vm -> vm != initiator)
+            .min(
+                (a, b) ->
+                    Double.compare(
+                        Math.abs(a.getMips() - initiator.getMips()),
+                        Math.abs(b.getMips() - initiator.getMips())))
+            .orElse(initiator);
 
-        if (vmList.isEmpty()) {
-            return Vm.NULL;
-        }
+    final Optional<Vm> bestVm =
+        vmList.stream()
+            .filter(
+                vm ->
+                    Math.abs(vm.getMips() - neighbor.getMips())
+                        < neighbor.getMips() * CLUSTER_THRESHOLD)
+            .min(
+                (a, b) ->
+                    Integer.compare(
+                        a.getCloudletScheduler().getCloudletExecList().size()
+                            + a.getCloudletScheduler().getCloudletWaitingList().size(),
+                        b.getCloudletScheduler().getCloudletExecList().size()
+                            + b.getCloudletScheduler().getCloudletWaitingList().size()));
 
-        // Step 1: Pick a random VM
-        Vm initiator = vmList.get(random.nextInt(vmList.size()));
-
-        // Step 2: Find neighbor (here: VM with closest MIPS to initiator)
-        Vm neighbor = vmList.stream()
-                .filter(vm -> vm != initiator)
-                .min((a, b) -> Double.compare(Math.abs(a.getMips() - initiator.getMips()),
-                Math.abs(b.getMips() - initiator.getMips())))
-                .orElse(initiator);
-
-        // Step 3: Among neighbor’s "cluster", pick least loaded VM
-        Optional<Vm> bestVm = vmList.stream()
-                .filter(vm -> Math.abs(vm.getMips() - neighbor.getMips()) < neighbor.getMips() * 0.2) // same cluster
-                .min((a, b) -> Integer.compare(
-                a.getCloudletScheduler().getCloudletExecList().size()
-                + a.getCloudletScheduler().getCloudletWaitingList().size(),
-                b.getCloudletScheduler().getCloudletExecList().size()
-                + b.getCloudletScheduler().getCloudletWaitingList().size()
-        ));
-
-        return bestVm.orElse(neighbor);
-
-    }
+    return bestVm.orElse(neighbor);
+  }
 }

@@ -1,0 +1,458 @@
+cd D:\apps\cloudsimplus-cloudsimplus-v9.0.0-snapshot-4-ge31fc71\cloudsimplus-cloudsimplus-e31fc71; "JAVA_HOME=C:\\Program Files\\Java\\jdk-24" cmd /c "\"D:\\apps\\cloudsimplus-cloudsimplus-v9.0.0-snapshot-4-ge31fc71\\cloudsimplus-cloudsimplus-e31fc71\\mvnw.cmd\" -Dexec.vmArgs= \"-Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}\" \"-Dexec.executable=C:\\Program Files\\Java\\jdk-24\\bin\\java.exe\" -Dexec.mainClass=Test -Dexec.classpathScope=runtime -Dexec.appArgs= \"-Dmaven.ext.class.path=C:\\Program Files\\NetBeans-15\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar\" org.codehaus.mojo:exec-maven-plugin:3.0.0:exec"
+Running NetBeans Compile On Save execution. Phase execution is skipped and output directories of dependency projects (with Compile on Save turned on) will be used instead of their jar artifacts.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Users/aaaaa/.m2/wrapper/dists/apache-maven-3.8.6-bin/67568434/apache-maven-3.8.6/lib/jansi-2.4.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Users/aaaaa/.m2/wrapper/dists/apache-maven-3.8.6-bin/67568434/apache-maven-3.8.6/lib/guava-25.1-android.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+Scanning for projects...
+
+-------------------< org.cloudsimplus:cloudsimplus >--------------------
+Building CloudSim Plus API 9.0.0-SNAPSHOT
+--------------------------------[ jar ]---------------------------------
+
+--- exec-maven-plugin:3.0.0:exec (default-cli) @ cloudsimplus ---
+=======================Load file config ==============================
+RessourceUtilization = no
+Scalability = yes
+ressourceCpuMax = 80
+Throughtput = no
+responseTimeMAX = 0.4
+toleranceMax = 2
+Tolerant = yes
+PowerSaving = no
+Overhead = yes
+MigrationTime = yes
+timeMax = 10000
+ResponseTime = yes
+api = https://my-django-service-203529880928.us-central1.run.app/predict
+Performance = yes
+deadline = 1000
+throughputMax = 0.00002
+tolerance = 100
+=======================------------------==============================
+Init Policy based on your configuration  :"JoinIdleQueue"
+Throughtput Threshold : 2.0E-5
+Respone time Threshold : (Averge)0.4
+Number of TOLERANCE THRESHOLD : 2.0 with Deadline 1000.0
+Ressource Utilization in %  : 80.0
+INFO  
+================== Starting CloudSim Plus 9.0.0 ==================
+
+INFO  Broker 1 is starting...
+INFO  0,00: #Datacenter 2 is starting...
+INFO  0,00: #Datacenter 3 is starting...
+INFO  0,00: #Datacenter 4 is starting...
+INFO  Entities started.
+INFO  0,00: AdaptiveBroker1: List of 3 datacenters(s) received.
+INFO  0,00: AdaptiveBroker1: Trying to create Vm 0 inside #Datacenter 2
+INFO  0,00: AdaptiveBroker1: Trying to create Vm 1 inside #Datacenter 2
+INFO  0,00: HostSimple: Vm 0 is booting up right away in Host 0/#DC 3, since no startup delay (boot time) was set.
+INFO  0,00: VmAllocationPolicySimple: Vm 0 has been allocated to Host 0/#DC 3
+WARN  0,00: VmAllocationPolicySimple: No suitable host found for Vm 1 in #Datacenter 2
+INFO  0,10: AdaptiveBroker1: Trying to create Vm 1 inside #Datacenter 3
+WARN  0,10: VmAllocationPolicySimple: No suitable host found for Vm 1 in #Datacenter 3
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+Switched policy to: JoinIdleQueueBroker at time 0.2
+INFO  0,20: AdaptiveBroker1: List of 6 Cloudlets submitted to the broker during simulation execution.
+INFO  Cloudlets creation request sent to Datacenter.
+INFO  0,20: AdaptiveBroker1: Trying to create Vm 1 inside #Datacenter 4
+Mapping cloudlet 0 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 0 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 1 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 1 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 2 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 2 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 3 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 3 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 4 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 4 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 5 with JoinIdleQueueBroker -> VM 0
+INFO  0,20: AdaptiveBroker1: Sending Cloudlet 5 to Vm 0 inside Host 0/#DC 3.
+INFO  0,20: HostSimple: Vm 1 is booting up right away in Host 0/#DC 4, since no startup delay (boot time) was set.
+INFO  0,20: VmAllocationPolicySimple: Vm 1 has been allocated to Host 0/#DC 4
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+Switched policy to: JoinIdleQueueBroker at time 0.30000000000000004
+INFO  0,30: AdaptiveBroker1: List of 12 Cloudlets submitted to the broker during simulation execution.
+INFO  Cloudlets creation request sent to Datacenter.
+Mapping cloudlet 0 with JoinIdleQueueBroker -> VM 0
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 0 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 1 with JoinIdleQueueBroker -> VM 1
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 1 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 2 with JoinIdleQueueBroker -> VM 1
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 2 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 3 with JoinIdleQueueBroker -> VM 1
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 3 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 4 with JoinIdleQueueBroker -> VM 1
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 4 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 5 with JoinIdleQueueBroker -> VM 0
+INFO  0,30: AdaptiveBroker1: Sending Cloudlet 5 to Vm 0 inside Host 0/#DC 3.
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+Switched policy to: JoinIdleQueueBroker at time 100.2
+INFO  100,20: AdaptiveBroker1: List of 24 Cloudlets submitted to the broker during simulation execution.
+INFO  Cloudlets creation request sent to Datacenter.
+Mapping cloudlet 0 with JoinIdleQueueBroker -> VM 0
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 0 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 1 with JoinIdleQueueBroker -> VM 0
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 1 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 2 with JoinIdleQueueBroker -> VM 1
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 2 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 3 with JoinIdleQueueBroker -> VM 1
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 3 to Vm 1 inside Host 0/#DC 4.
+Mapping cloudlet 4 with JoinIdleQueueBroker -> VM 0
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 4 to Vm 0 inside Host 0/#DC 3.
+Mapping cloudlet 5 with JoinIdleQueueBroker -> VM 1
+INFO  100,20: AdaptiveBroker1: Sending Cloudlet 5 to Vm 1 inside Host 0/#DC 4.
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+
+========== Datacenter Resource Utilization ==========
+? No finished Cloudlets found!
+INFO  299,67: AdaptiveBroker1: Cloudlet 2 finished in Vm 1 and returned to broker.
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            299,67          199,47          -100,00         199,47          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 299,47 secnLive Average Response Time: 199,47 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 199,47 sec
+Live Throughput : 0.003339243794850218
+Cpu  :100.0
+ Live Tolerance 0.0
+HERE
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            299,67          199,47          -100,00         199,47          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 299,47 secnLive Average Response Time: 199,47 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 199,47 sec
+Live Throughput : 0.003339243794850218
+Cpu  :100.0
+ Live Tolerance 0.0
+INFO  600,40: AdaptiveBroker1: Cloudlet 0 finished in Vm 0 and returned to broker.
+INFO  600,40: AdaptiveBroker1: Cloudlet 4 finished in Vm 0 and returned to broker.
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 600,20 secnLive Average Response Time: 500,20 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 500,20 sec
+Live Throughput : 0.004998333888703765
+Cpu  :100.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 600,20 secnLive Average Response Time: 500,20 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 500,20 sec
+Live Throughput : 0.004998333888703765
+Cpu  :100.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 600,20 secnLive Average Response Time: 500,20 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 500,20 sec
+Live Throughput : 0.004998333888703765
+Cpu  :100.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 600,20 secnLive Average Response Time: 500,20 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 500,20 sec
+Live Throughput : 0.004998333888703765
+Cpu  :100.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 600,20 secnLive Average Response Time: 500,20 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 500,20 sec
+Live Throughput : 0.004998333888703765
+Cpu  :100.0
+ Live Tolerance 0.0
+INFO  2099,39: AdaptiveBroker1: Cloudlet 3 finished in Vm 1 and returned to broker.
+INFO  2099,39: AdaptiveBroker1: Cloudlet 5 finished in Vm 1 and returned to broker.
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+5          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 2099,19 secnLive Average Response Time: 1099,80 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 1099,80 sec
+Live Throughput : 0.0023818711026634075
+Cpu  :0.0
+ Live Tolerance 0.0
+Switched policy to: RoundRobinBroker at time 2099.838
+INFO  2099,84: AdaptiveBroker1: List of 8 Cloudlets submitted to the broker during simulation execution.
+INFO  Cloudlets creation request sent to Datacenter.
+Mapping cloudlet 1 with RoundRobinBroker -> VM 0
+INFO  2099,84: AdaptiveBroker1: Sending Cloudlet 1 to Vm 0 inside Host 0/#DC 3.
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+5          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 2099,19 secnLive Average Response Time: 1099,80 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 1099,80 sec
+Live Throughput : 0.0023818711026634075
+Cpu  :0.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+5          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+
+==================== Summary Metrics ====================
+LiveMakespan: 2099,19 secnLive Average Response Time: 1099,80 sec
+Live Average Waiting Time: -100,00 sec
+LiveAverage Turnaround Time: 1099,80 sec
+Live Throughput : 0.0023818711026634075
+Cpu  :100.0
+ Live Tolerance 0.0
+INFO  3100,00: AdaptiveBroker1: Cloudlet 1 finished in Vm 0 and returned to broker.
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+5          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+1          0,20            3100,00         1000,16         -2099,64        1000,16         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 3099,80 secnLive Average Response Time: 1083,19 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 1083,19 sec
+Live Throughput : 0.0019356087489515452
+Cpu  :0.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+5          0,20            2099,39         1999,19         -100,00         1999,19         Join Idle Queue (JIQ)
+1          0,20            3100,00         1000,16         -2099,64        1000,16         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 3099,80 secnLive Average Response Time: 1083,19 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 1083,19 sec
+Live Throughput : 0.0019356087489515452
+Cpu  :0.0
+ Live Tolerance 0.0
+Switched policy to: RoundRobinBroker at time 5287.11
+[5287,11] ? No unfinished Cloudlets to resend
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+5          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+1          0,20            5287,11         3187,27         -2099,64        3187,27         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 5286,91 secnLive Average Response Time: 2510,28 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 2510,28 sec
+Live Throughput : 0.0011348784072359847
+Cpu  :0.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+5          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+1          0,20            5287,11         3187,27         -2099,64        3187,27         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 5286,91 secnLive Average Response Time: 2510,28 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 2510,28 sec
+Live Throughput : 0.0011348784072359847
+Cpu  :0.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+5          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+1          0,20            5287,11         3187,27         -2099,64        3187,27         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 5286,91 secnLive Average Response Time: 2510,28 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 2510,28 sec
+Live Throughput : 0.0011348784072359847
+Cpu  :0.0
+ Live Tolerance 0.0
+
+========== Datacenter Resource Utilization ==========
+
+========== Cloudlet Metrics ==========
+Cloudlet   Start           Finish          Response        Waiting         Turnaround      Policy              
+2          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+0          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+4          0,20            600,40          500,20          -100,00         500,20          Join Idle Queue (JIQ)
+3          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+5          0,20            5287,11         5186,91         -100,00         5186,91         Join Idle Queue (JIQ)
+1          0,20            5287,11         3187,27         -2099,64        3187,27         Round Robin         
+
+==================== Summary Metrics ====================
+LiveMakespan: 5286,91 secnLive Average Response Time: 2510,28 sec
+Live Average Waiting Time: -433,27 sec
+LiveAverage Turnaround Time: 2510,28 sec
+Live Throughput : 0.0011348784072359847
+Cpu  :0.0
+ Live Tolerance 0.0
+Switched policy to: RoundRobinBroker at time 5287.31
+[5287,31] ? No unfinished Cloudlets to resend
+INFO  5287,31: Processing last events before simulation shutdown.
+INFO  5287,31: AdaptiveBroker1 is shutting down...
+INFO  5287,31: VmSimple: Requesting Vm 1 destruction on Host 0/#DC 4. Shutdown will finish immediately (since no Vm shutDownDelay was set).
+INFO  5287,31: VmSimple: Requesting Vm 0 destruction on Host 0/#DC 3. Shutdown will finish immediately (since no Vm shutDownDelay was set).
+WARN  5287,31: #Datacenter 3: Vm 0 destroyed on Host 0/#DC 3. It had a total of 1 cloudlets (running + waiting). Some events may have been missed. You can try:
+(a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute;
+(b) increasing broker's Vm destruction delay for idle VMs if you set it to zero;
+(c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+
+WARN  5287,31: #Datacenter 4: Vm 1 destroyed on Host 0/#DC 4. It had a total of 3 cloudlets (running + waiting). Some events may have been missed. You can try:
+(a) decreasing CloudSim's minTimeBetweenEvents and/or Datacenter's schedulingInterval attribute;
+(b) increasing broker's Vm destruction delay for idle VMs if you set it to zero;
+(c) defining Cloudlets with smaller length (your Datacenter's scheduling interval may be smaller than the time to finish some Cloudlets).
+
+INFO  Simulation: No more future events
+
+INFO  CloudInformationService0: Notify all CloudSim Plus entities to shutdown.
+
+INFO  5287,31: #Datacenter 3 is shutting down...
+INFO  
+================== Simulation finished at time 5287,31 ==================
+
+
+
+                                                          SIMULATION RESULTS
+
+|-----------------Policy-----------|Cloudlet| Status|DC|Host|Host PEs |VM|   VM PEs|CloudletLen|FinishedLen|CloudletPEs|StartTime|FinishTime|ExecTime
+|----------------------------------|--------|-------|--|----|---------|--|---------|-----------|-----------|-----------|---------|----------|--------
+|                                  |      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|         MI|  CPU cores|  Seconds|   Seconds| Seconds
+|             Join Idle Queue (JIQ)|       2|SUCCESS| 4|   0|        1| 1|        1|     100000|     100000|          1|      0,2|     600,4|   600,2
+|             Join Idle Queue (JIQ)|       0|SUCCESS| 3|   0|        1| 0|        1|     100000|     100000|          1|      0,2|     600,4|   600,2
+|             Join Idle Queue (JIQ)|       4|SUCCESS| 3|   0|        1| 0|        1|     100000|     100000|          1|      0,2|     600,4|   600,2
+|             Join Idle Queue (JIQ)|       3|SUCCESS| 4|   0|        1| 1|        1|    1000000|    1000000|          1|      0,2|    5287,1|  5286,9
+|             Join Idle Queue (JIQ)|       5|SUCCESS| 4|   0|        1| 1|        1|    1000000|    1000000|          1|      0,2|    5287,1|  5286,9
+|                      Round Robin |       1|SUCCESS| 3|   0|        1| 0|        1|    1000000|    1000000|          1|      0,2|    5287,1|  5286,9
+
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  40.919 s
+Finished at: 2026-03-08T01:47:47Z
+------------------------------------------------------------------------
