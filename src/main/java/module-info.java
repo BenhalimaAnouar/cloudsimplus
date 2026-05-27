@@ -8,4 +8,5 @@ module cloudsimplus {
   requires org.jetbrains.annotations;
   requires org.slf4j;
   requires java.net.http;
+ exports loadbalancig;
 }

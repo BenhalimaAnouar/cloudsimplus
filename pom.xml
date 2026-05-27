@@ -194,6 +194,16 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+        <!-- 🔥 CRITICAL FIX for your error -->
+        <useModulePath>false</useModulePath>
+
+        <!-- Avoid crash بسبب System.out -->
+        <redirectTestOutputToFile>false</redirectTestOutputToFile>
+
+        <!-- Optional: debug -->
+        <forkCount>0</forkCount>
+      </configuration>
                     </plugin>
 
                     <plugin>
@@ -394,7 +404,7 @@
              Plugin for code coverage, enabling
              generation of reports on IDE to see percentage
              of the project's code that is being covered by unit tests.
-            -->
+           
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -408,7 +418,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+ -->
             <!--
             Adds License Information to project source and binaries using com.mycila.maven-license-plugin.
             https://dzone.com/articles/adding-license-information.
@@ -518,11 +528,11 @@
 
       
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>${junit.version}</version>
+    <scope>test</scope>
+</dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -553,11 +563,13 @@
             <version>26.0.2</version>
             <scope>compile</scope>
         </dependency>
-        
-        
-        
-        
-        
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.12.2</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <reporting>

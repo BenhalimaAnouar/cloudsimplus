@@ -779,7 +779,7 @@ public class AdaptiveBroker extends DatacenterBrokerSimple {
     return selected;
   }
 
-  protected Vm selectVmForCloudlet(Cloudlet cloudlet) {
+  public Vm selectVmForCloudlet(Cloudlet cloudlet) {
     return policy.selectVmForCloudlet(cloudlet, getVmCreatedList());
   }
 }
